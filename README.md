@@ -4,6 +4,6 @@
 # So AI is not replacing engineers
 # Its just a child you send to get candies and not heavylifting...
 #
-# Wasted my 6 hours talking with this f*** shi*.
+# Wasted my 6 hours
 
 
