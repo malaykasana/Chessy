@@ -1,4 +1,4 @@
-# Chess Analyser
+# Chessy
 Chess.comâ€‘style Python chess analyser with Stockfish, analysis, and game review.
 =======
 # Chess Game with Stockfish AI
@@ -7,7 +7,7 @@ A command-line chess game where you can play against the powerful Stockfish ches
 
 ## Features\r\n# Chess Analyser\r\nChess.comâ€‘style Python chess analyser with Stockfish, analysis, and game review.
 
-[![Build Windows](https://github.com/malaykasana/ChessAnalyser/actions/workflows/build-windows.yml/badge.svg)](https://github.com/malaykasana/ChessAnalyser/actions/workflows/build-windows.yml)
+[![Build Windows](https://github.com/malaykasana/Chessy/actions/workflows/build-windows.yml/badge.svg)](https://github.com/malaykasana/Chessy/actions/workflows/build-windows.yml)
 
 This project includes both a full GUI app (`chess_gui.py`) and a simple command-line game (`main.py`).
 
@@ -95,7 +95,7 @@ python chess_gui.py
 
 ### Run with VS Code tasks
 
-- Use the built-in task "Run Chess Analyser" to start the app.
+- Use the built-in task "Run Chessy" to start the app.
 - Use the built-in task "Build Windows EXE" to package a distributable.
 ### Game Setup
 
@@ -269,6 +269,6 @@ This project is open source and available for educational purposes.
 ---
 
 Enjoy your game! â™”â™•â™–â™—â™˜â™™
->>>>>>> d8e6fd4 (Initial commit: Chess Analyser with GUI, review, Windows build)
+ 
 
 
