@@ -30,10 +30,10 @@ jobs:
           if (!(Test-Path 'stockfish/stockfish-windows-x86-64-avx2.exe')) {
             Write-Host 'Stockfish binary not found; building without engine. Place an exe under stockfish/ to bundle.'
           }
-          pyinstaller --noconfirm --windowed --clean --add-data "stockfish;stockfish" chess_gui.py --name ChessGUI
+          pyinstaller --noconfirm --windowed --clean --add-data "stockfish;stockfish" chess_gui.py --name Chessy
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ChessGUI-windows
-          path: dist/ChessGUI/
+          name: Chessy-windows
+          path: dist/Chessy/

@@ -1,4 +1,4 @@
-# Build a Windows desktop EXE for the Chess GUI using PyInstaller
+# Build a Windows desktop EXE for Chess Analyser using PyInstaller
 # Usage: Run from project root in PowerShell
 
 $ErrorActionPreference = 'Stop'
@@ -57,7 +57,7 @@ $pyiArgs = @(
     "--add-data=$addData"
 )
 if ($icon) { $pyiArgs += "--icon=$icon" }
-$pyiArgs += @('chess_gui.py','--name','ChessGUI')
+$pyiArgs += @('chess_gui.py','--name','Chessy')
 
     # Prevent user site from affecting PyInstaller
     $env:PYTHONNOUSERSITE = '1'
@@ -67,4 +67,5 @@ if ($LASTEXITCODE -ne 0) { Write-Error "PyInstaller failed with exit code $LASTE
 # Restore PATH
 if ($originalPath) { $env:PATH = $originalPath }
 
-Write-Host "Build complete. Find the EXE under $root\dist\ChessGUI\ChessGUI.exe"
+Write-Host "Build complete. Find the EXE under $root\dist\\Chessy\\Chessy.exe"
+

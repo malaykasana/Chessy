@@ -1,44 +1,42 @@
-# ChessGUI
-Chess.com‑style Python chess GUI with Stockfish, analysis, and game review.
+# Chess Analyser
+Chess.comâ€‘style Python chess analyser with Stockfish, analysis, and game review.
 =======
 # Chess Game with Stockfish AI
 
 A command-line chess game where you can play against the powerful Stockfish chess engine.
 
-## Features
-# ChessGUI
-Chess.com‑style Python chess GUI with Stockfish, analysis, and game review.
+## Features\r\n# Chess Analyser\r\nChess.comâ€‘style Python chess analyser with Stockfish, analysis, and game review.
 
-[![Build Windows](https://github.com/malaykasana/ChessGUI/actions/workflows/build-windows.yml/badge.svg)](https://github.com/malaykasana/ChessGUI/actions/workflows/build-windows.yml)
+[![Build Windows](https://github.com/malaykasana/ChessAnalyser/actions/workflows/build-windows.yml/badge.svg)](https://github.com/malaykasana/ChessAnalyser/actions/workflows/build-windows.yml)
 
 This project includes both a full GUI app (`chess_gui.py`) and a simple command-line game (`main.py`).
 
 
 ### Command-Line Version (main.py)
-- ♟ Full chess game implementation with move validation
-- 🤖 Play against Stockfish AI engine
-- 🎨 Clear command-line board display
-- ⚙️ Adjustable AI difficulty (thinking time)
-- ↩️ Undo moves
-- ✅ Detects checkmate, stalemate, and draw conditions
-- 📝 Move input in standard UCI notation (e.g., e2e4)
+- â™Ÿ Full chess game implementation with move validation
+- ðŸ¤– Play against Stockfish AI engine
+- ðŸŽ¨ Clear command-line board display
+- âš™ï¸ Adjustable AI difficulty (thinking time)
+- â†©ï¸ Undo moves
+- âœ… Detects checkmate, stalemate, and draw conditions
+- ðŸ“ Move input in standard UCI notation (e.g., e2e4)
 
-### GUI Version (chess_gui.py) ✨NEW
-- 🎮 **Graphical chess board** with Unicode pieces
-- 🖱️ **Click to move** - Intuitive drag-free interface
-- 💡 **Legal move highlights** - See where you can move
-- 🤖 **AI opponent** with adjustable thinking time
-- 🎨 **6 Beautiful themes** - Classic, Blue, Green, Purple, Modern, Dark
-- 🔄 **New Game, Undo** buttons
-- ⚪⚫ **Choose your color** (White or Black)
-- 📊 **Live evaluation bar** - Real-time position analysis
-- 💡 **Hint system** - Get best move suggestions from Stockfish
-- 💾 **Save/Load PGN** - Export and import games
-- 📜 **Move history** - View all moves in the game
-- 🔗 **Account integration** - Connect Lichess & Chess.com accounts
-- 📊 **Game review mode** - Fetch and analyze your online games
-- 🔍 **Move-by-move analysis** - Find blunders, mistakes, and inaccuracies
-- ⏮⏭ **Game navigation** - Step through moves with live eval
+### GUI Version (chess_gui.py) âœ¨NEW
+- ðŸŽ® **Graphical chess board** with Unicode pieces
+- ðŸ–±ï¸ **Click to move** - Intuitive drag-free interface
+- ðŸ’¡ **Legal move highlights** - See where you can move
+- ðŸ¤– **AI opponent** with adjustable thinking time
+- ðŸŽ¨ **6 Beautiful themes** - Classic, Blue, Green, Purple, Modern, Dark
+- ðŸ”„ **New Game, Undo** buttons
+- âšªâš« **Choose your color** (White or Black)
+- ðŸ“Š **Live evaluation bar** - Real-time position analysis
+- ðŸ’¡ **Hint system** - Get best move suggestions from Stockfish
+- ðŸ’¾ **Save/Load PGN** - Export and import games
+- ðŸ“œ **Move history** - View all moves in the game
+- ðŸ”— **Account integration** - Connect Lichess & Chess.com accounts
+- ðŸ“Š **Game review mode** - Fetch and analyze your online games
+- ðŸ” **Move-by-move analysis** - Find blunders, mistakes, and inaccuracies
+- â®â­ **Game navigation** - Step through moves with live eval
 
 ## Requirements
 
@@ -97,7 +95,7 @@ python chess_gui.py
 
 ### Run with VS Code tasks
 
-- Use the built-in task "Run Chess GUI" to start the app.
+- Use the built-in task "Run Chess Analyser" to start the app.
 - Use the built-in task "Build Windows EXE" to package a distributable.
 ### Game Setup
 
@@ -125,7 +123,7 @@ Enter moves in UCI notation:
 Choose your color (white/black) [white]: white
 AI difficulty - thinking time in seconds (0.5-10) [1.0]: 1.5
 
-♟ Chess Game - Play against Stockfish ♟
+â™Ÿ Chess Game - Play against Stockfish â™Ÿ
 ========================================
 You are playing as: White
 AI difficulty (thinking time): 1.5s
@@ -150,14 +148,14 @@ Your move (e.g., 'e2e4' or 'quit'): e2e4
 
 ```
 New folder/
-├── main.py              # Command-line chess game
-├── chess_gui.py         # GUI version with tkinter ✨NEW
-├── requirements.txt     # Python dependencies
-├── README.md           # This file
-├── .gitignore          # Git ignore rules
-├── .venv/              # Virtual environment
-└── .github/
-    └── copilot-instructions.md
+â”œâ”€â”€ main.py              # Command-line chess game
+â”œâ”€â”€ chess_gui.py         # GUI version with tkinter âœ¨NEW
+â”œâ”€â”€ requirements.txt     # Python dependencies
+â”œâ”€â”€ README.md           # This file
+â”œâ”€â”€ .gitignore          # Git ignore rules
+â”œâ”€â”€ .venv/              # Virtual environment
+â””â”€â”€ .github/
+    â””â”€â”€ copilot-instructions.md
 ```
 
 ## Dependencies
@@ -168,43 +166,43 @@ New folder/
 
 ## How to Use New Features
 
-### 💡 Hints
-1. Click the **"💡 Hint"** button during your turn
+### ðŸ’¡ Hints
+1. Click the **"ðŸ’¡ Hint"** button during your turn
 2. The best move will be highlighted in sky blue
 3. Click again to hide the hint
 
-### 💾 Save & Load Games
+### ðŸ’¾ Save & Load Games
 - **Save PGN**: Export your current game to a .pgn file
 - **Load PGN**: Import and replay any chess game
 
-### 📊 Game Review
-1. Click **"⚙️ Accounts"** to set up your usernames:
+### ðŸ“Š Game Review
+1. Click **"âš™ï¸ Accounts"** to set up your usernames:
    - Enter your Lichess username
    - Enter your Chess.com username
    - Click Save
-2. Click **"📊 Review"** to fetch your recent games
+2. Click **"ðŸ“Š Review"** to fetch your recent games
 3. View game details including opponents, results, and dates
 
-### 🔍 Game Analysis (Review Mode)
+### ðŸ” Game Analysis (Review Mode)
 1. **Load a PGN file** with "Load PGN" button
 2. Use navigation buttons to step through moves:
-   - **⏮ Start**: Go to beginning
-   - **◀ Prev**: Previous move
-   - **Next ▶**: Next move
-   - **End ⏭**: Go to end
+   - **â® Start**: Go to beginning
+   - **â—€ Prev**: Previous move
+   - **Next â–¶**: Next move
+   - **End â­**: Go to end
 3. **Watch evaluation bar** change with each move (left side of board)
    - White advantage: Bar goes down (white area)
    - Black advantage: Bar goes up (black area)
    - Center red line = Equal position
-4. **Click "🔍 Analyze All Moves"** to get full game analysis:
-   - Finds blunders (❌ -2.0 or worse)
-   - Finds mistakes (⚠️ -1.0 to -2.0)
+4. **Click "ðŸ” Analyze All Moves"** to get full game analysis:
+   - Finds blunders (âŒ -2.0 or worse)
+   - Finds mistakes (âš ï¸ -1.0 to -2.0)
    - Finds inaccuracies (?! -0.5 to -1.0)
    - Shows evaluation changes
 5. **Learn from mistakes** and improve your game!
 
-### 🎨 Themes
-1. Click **"🎨 Theme"** button
+### ðŸŽ¨ Themes
+1. Click **"ðŸŽ¨ Theme"** button
 2. Choose from 6 beautiful themes:
    - **Classic**: Traditional brown & beige
    - **Blue**: Cool blue tones
@@ -215,17 +213,17 @@ New folder/
 3. Preview before applying
 4. Theme auto-saves for next session
 
-### 📊 Evaluation Bar
+### ðŸ“Š Evaluation Bar
 - **Left side of board** shows live position evaluation
 - **Updates automatically** after each move
 - **White advantage**: Bar extends downward (white area grows)
 - **Black advantage**: Bar extends upward (black area grows)
 - **Equal**: Red line in center
 - **Numbers**: +2.0 = White up 2 pawns, -1.5 = Black up 1.5 pawns
-- **±∞**: Winning/losing position or mate detected
+- **Â±âˆž**: Winning/losing position or mate detected
 
-### 📜 Move History
-- Click **"📜 Moves"** to see all moves in the current game
+### ðŸ“œ Move History
+- Click **"ðŸ“œ Moves"** to see all moves in the current game
 - Moves are displayed in standard algebraic notation (SAN)
 
 ## Troubleshooting
@@ -270,5 +268,7 @@ This project is open source and available for educational purposes.
 
 ---
 
-Enjoy your game! ♔♕♖♗♘♙
->>>>>>> d8e6fd4 (Initial commit: ChessGUI with GUI, review, Windows build)
+Enjoy your game! â™”â™•â™–â™—â™˜â™™
+>>>>>>> d8e6fd4 (Initial commit: Chess Analyser with GUI, review, Windows build)
+
+

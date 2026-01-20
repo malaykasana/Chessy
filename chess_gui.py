@@ -1,5 +1,5 @@
 """
-Chess GUI using tkinter
+Chess Analyser using tkinter
 A graphical chess game where you can play against Stockfish AI
 Features: Hints, Game Review, Lichess/Chess.com Integration
 """
@@ -18,7 +18,7 @@ from datetime import datetime
 from io import StringIO
 
 
-class ChessGUI:
+class ChessAnalyser:
     # Unicode chess pieces - Multiple styles
     PIECE_SETS = {
         'Classic': {
@@ -165,9 +165,9 @@ class ChessGUI:
         "c2c4": "English Opening",
         "c2c4 e7e5": "English: Reversed Sicilian",
         "c2c4 g8f6": "English: Anglo-Indian",
-        "g1f3": "Réti Opening",
-        "g1f3 d7d5 c2c4": "Réti: Anglo-Slav",
-        "g1f3 g8f6 c2c4": "English via Réti",
+        "g1f3": "RÃ©ti Opening",
+        "g1f3 d7d5 c2c4": "RÃ©ti: Anglo-Slav",
+        "g1f3 g8f6 c2c4": "English via RÃ©ti",
         "b2b3": "Larsen's Opening",
         "f2f4": "Bird's Opening",
         "e2e4 e7e5 g1f3 b8c6 f1b5 a7a6": "Ruy Lopez: Morphy Defense",
@@ -180,7 +180,7 @@ class ChessGUI:
     
     def __init__(self, root, stockfish_path=None):
         self.root = root
-        self.root.title("Chess Game - Play vs Stockfish")
+        self.root.title("Chess Analyser - Play vs Stockfish")
         self.root.geometry("1280x720")  # Optimized window size for 16:9 layouts
         self.root.minsize(1100, 720)
         self.root.resizable(False, False)
@@ -354,9 +354,9 @@ class ChessGUI:
         if engine_path:
             try:
                 self.engine = chess.engine.SimpleEngine.popen_uci(engine_path)
-                print(f"✓ Stockfish loaded: {engine_path}")
+                print(f"Stockfish loaded: {engine_path}")
             except Exception as e:
-                print(f"⚠ Could not load Stockfish: {e}")
+                print(f"Could not load Stockfish: {e}")
                 messagebox.showwarning(
                     "Stockfish Not Found",
                     "Stockfish engine not found!\n\n"
@@ -515,7 +515,7 @@ class ChessGUI:
         timer_frame.pack(fill=tk.X, pady=(4, 0))
         self.white_timer_label = tk.Label(
             timer_frame,
-            text="⏱ 0:00",
+            text="Time 0:00",
             font=("Segoe UI", 10, "bold"),
             bg="#F5F5F5",
             fg="#1F1F1F",
@@ -523,7 +523,7 @@ class ChessGUI:
         self.white_timer_label.pack(anchor="w")
         self.black_timer_label = tk.Label(
             timer_frame,
-            text="⏱ 0:00",
+            text="Time 0:00",
             font=("Segoe UI", 10, "bold"),
             bg="#F5F5F5",
             fg="#1F1F1F",
@@ -587,7 +587,7 @@ class ChessGUI:
         quick_actions.pack(fill=tk.X, pady=(10, 0))
         tk.Button(
             quick_actions,
-            text="🔄 Flip Board",
+            text="Flip Board",
             command=self.flip_board,
             font=("Segoe UI", 10),
             width=12,
@@ -838,7 +838,7 @@ class ChessGUI:
         for text, command in [
             ("New Game", self.new_game),
             ("Undo Move", self.undo_move),
-            ("💡 Hint", self.toggle_hint),
+            ("Hint", self.toggle_hint),
             ("Save PGN", self.save_game),
         ]:
             tk.Button(
@@ -857,9 +857,9 @@ class ChessGUI:
         button_row2.pack(fill=tk.X)
         for text, command in [
             ("Load PGN", self.load_game),
-            ("⚙️ Accounts", self.open_settings),
-            ("📊 Review", self.open_review_menu),
-            ("📜 Moves", self.show_move_history),
+            ("âš™ï¸ Accounts", self.open_settings),
+            ("Review", self.open_review_menu),
+            ("Moves", self.show_move_history),
         ]:
             tk.Button(
                 button_row2,
@@ -876,8 +876,8 @@ class ChessGUI:
         button_row3 = tk.Frame(bottom_frame, bg="#F5F5F5")
         button_row3.pack(fill=tk.X)
         for text, command, bg_color, active_color in [
-            ("🎨 Theme", self.open_theme_selector, "#FFFDE7", "#FFF9C4"),
-            ("♟ Piece Set", self.open_piece_selector, "#FFFDE7", "#FFF9C4"),
+            ("Theme", self.open_theme_selector, "#FFFDE7", "#FFF9C4"),
+            ("Piece Set", self.open_piece_selector, "#FFFDE7", "#FFF9C4"),
         ]:
             tk.Button(
                 button_row3,
@@ -947,21 +947,21 @@ class ChessGUI:
                     # Classify move
                     move_quality = ""
                     if abs(eval_before) > 50 or abs(eval_after) > 50:
-                        move_quality = "✓"  # Skip quality for mate positions
+                        move_quality = "OK"  # Skip quality for mate positions
                     elif eval_change < -2.0:
-                        move_quality = "❌ BLUNDER"
+                        move_quality = "BLUNDER"
                     elif eval_change < -1.0:
-                        move_quality = "⚠️ Mistake"
+                        move_quality = "Mistake"
                     elif eval_change < -0.5:
                         move_quality = "?! Inaccuracy"
                     elif eval_change > 0.5:
-                        move_quality = "✓ Good"
+                        move_quality = "Good"
                     else:
                         move_quality = "="
                     
                     turn = "White" if move_num % 2 == 0 else "Black"
                     move_line = f"{move_num + 1}. {san_move} ({turn}) - {move_quality}\n"
-                    move_line += f"   Eval: {eval_before:+.2f} → {eval_after:+.2f}"
+                    move_line += f"   Eval: {eval_before:+.2f} -> {eval_after:+.2f}"
                     
                     if eval_change < -0.5:
                         move_line += f" (Loss: {eval_change:.2f})"
@@ -1204,7 +1204,7 @@ class ChessGUI:
         if self.lichess_username:
             tk.Button(
                 button_frame,
-                text=f"📊 Lichess ({self.lichess_username})",
+                text=f"Lichess ({self.lichess_username})",
                 command=lambda: self.fetch_lichess_games(review_window),
                 width=25,
                 height=2
@@ -1213,7 +1213,7 @@ class ChessGUI:
         if self.chesscom_username:
             tk.Button(
                 button_frame,
-                text=f"📊 Chess.com ({self.chesscom_username})",
+                text=f"Chess.com ({self.chesscom_username})",
                 command=lambda: self.fetch_chesscom_games(review_window),
                 width=25,
                 height=2
@@ -1787,8 +1787,8 @@ class ChessGUI:
                         post_eval, post_label = self._convert_score_to_eval(post_info.get("score"))
                         delta = post_eval - pre_eval
                         verdict = "=" if abs(delta) < 0.5 else ("Good" if delta > 0.5 else ("Inaccuracy" if delta > -1.0 else ("Mistake" if delta > -2.0 else "Blunder")))
-                        icon = {"Good":"✓", "Inaccuracy":"?!", "Mistake":"⚠", "Blunder":"❌", "=":"="}[verdict]
-                        lines.insert(0, f"{icon} Last move impact: {delta:+.2f} (from {pre_label} to {post_label}) — {verdict}")
+                        icon = {"Good": "Good", "Inaccuracy": "?!", "Mistake": "Mistake", "Blunder": "Blunder", "=": "="}[verdict]
+                        lines.insert(0, f"{icon} - Last move impact: {delta:+.2f} (from {pre_label} to {post_label}) - {verdict}")
                 except Exception:
                     pass
 
@@ -1904,7 +1904,7 @@ class ChessGUI:
             try:
                 # Add headers to mimic a browser request
                 headers = {
-                    'User-Agent': 'Chess GUI App/1.0',
+                    'User-Agent': 'Chess Analyser App/1.0',
                     'Accept': 'application/x-ndjson'
                 }
                 
@@ -2013,7 +2013,7 @@ class ChessGUI:
                 # Validate username first
                 if not self.chesscom_username or self.chesscom_username.strip() == "":
                     error_msg = "Chess.com username is not set!\n"
-                    error_msg += "Please go to ⚙️ Accounts and enter your username.\n"
+                    error_msg += "Please go to âš™ï¸ Accounts and enter your username.\n"
                     self.root.after(0, lambda: self.review_text.delete(1.0, tk.END))
                     self.root.after(0, lambda: self.review_text.insert(tk.END, error_msg))
                     return
@@ -2169,7 +2169,7 @@ class ChessGUI:
     def _collect_recent_lichess_games(self, username, limit=12):
         """Return a list of recent Lichess games with PGNs for inline review."""
         headers = {
-            "User-Agent": "Chess GUI App/1.0",
+            "User-Agent": "Chess Analyser App/1.0",
             "Accept": "application/x-ndjson",
         }
         params = {"max": limit, "pgnInJson": "true"}
@@ -2661,7 +2661,7 @@ class ChessGUI:
         
         # Update label
         if abs(evaluation) > 5:
-            eval_text = "±∞" if evaluation > 0 else "∓∞"
+            eval_text = "Â±âˆž" if evaluation > 0 else "âˆ“âˆž"
         else:
             eval_text = f"{evaluation:+.1f}"
         
@@ -3100,7 +3100,7 @@ class ChessGUI:
     def update_status(self):
         """Update the status label."""
         if self.ai_thinking:
-            self.status_label.config(text="🤔 AI is thinking...")
+            self.status_label.config(text="AI is thinking...")
             return
         
         # Detect opening
@@ -3263,11 +3263,7 @@ class ChessGUI:
         black_value = sum(piece_values[p.lower()] for p in self.captured_black)
         advantage = white_value - black_value
         
-        # Unicode symbols for pieces
-        piece_symbols = {
-            'p': '♟', 'n': '♞', 'b': '♝', 'r': '♜', 'q': '♛',
-            'P': '♙', 'N': '♘', 'B': '♗', 'R': '♖', 'Q': '♕'
-        }
+        piece_symbols = self.PIECE_SETS.get(self.piece_style, self.PIECE_SETS["Classic"])
         
         # Display captured by white (black pieces)
         captured_white_str = ''.join(piece_symbols.get(p, p) for p in self.captured_white)
@@ -3296,8 +3292,8 @@ class ChessGUI:
         black_mins = int(self.black_time // 60)
         black_secs = int(self.black_time % 60)
         
-        self.white_timer_label.config(text=f"⏱ {white_mins}:{white_secs:02d}")
-        self.black_timer_label.config(text=f"⏱ {black_mins}:{black_secs:02d}")
+        self.white_timer_label.config(text=f"Time {white_mins}:{white_secs:02d}")
+        self.black_timer_label.config(text=f"Time {black_mins}:{black_secs:02d}")
         
         # Highlight current player's timer
         if self.board.turn == chess.WHITE:
@@ -3331,10 +3327,12 @@ class ChessGUI:
         self.move_list_text.config(state=tk.NORMAL)
         self.move_list_text.delete(1.0, tk.END)
         
-        # Format moves in two-column layout (white | black)
+        # Format moves in two-column layout (White | Black)
         moves = list(self.board.move_stack)
         temp_board = chess.Board()
-        white_san = ""
+
+        pending_white = None
+        pending_move_no = 1
         for ply_index, move in enumerate(moves):
             try:
                 san = temp_board.san(move)
@@ -3343,18 +3341,19 @@ class ChessGUI:
             temp_board.push(move)
 
             if ply_index % 2 == 0:
-                # White's move starts a new row
-                white_san = san
-                move_num = (ply_index // 2) + 1
-                line = f"{move_num:3d}. {white_san:10s} "
-                # If this is the last move and it's white's, black is empty for now
-                if ply_index == len(moves) - 1:
-                    line += "\n"
-                    self.move_list_text.insert(tk.END, line)
+                pending_white = san
+                pending_move_no = (ply_index // 2) + 1
             else:
-                # Black's move completes the row
-                line += f"{san}\n"
+                white_text = pending_white or ""
+                black_text = san
+                line = f"{pending_move_no:3d}. {white_text:10s} {black_text}\n"
                 self.move_list_text.insert(tk.END, line)
+                pending_white = None
+
+        # If game ends on White's move, flush the last incomplete row.
+        if pending_white is not None:
+            line = f"{pending_move_no:3d}. {pending_white:10s}\n"
+            self.move_list_text.insert(tk.END, line)
         
         self.move_list_text.config(state=tk.DISABLED)
         self.move_list_text.see(tk.END)  # Auto-scroll to latest move
@@ -3381,7 +3380,7 @@ def main():
     
     # Ask for Stockfish path (optional)
     # You can add a file dialog here if needed
-    app = ChessGUI(root)
+    app = ChessAnalyser(root)
     
     # Cleanup on close
     def on_closing():
@@ -3394,3 +3393,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
