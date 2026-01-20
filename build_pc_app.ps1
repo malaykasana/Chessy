@@ -57,7 +57,7 @@ $pyiArgs = @(
     "--add-data=$addData"
 )
 if ($icon) { $pyiArgs += "--icon=$icon" }
-$pyiArgs += @('chess_gui.py','--name','Chessy')
+$pyiArgs += @('chessy.py','--name','Chessy')
 
     # Prevent user site from affecting PyInstaller
     $env:PYTHONNOUSERSITE = '1'

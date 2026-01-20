@@ -9,7 +9,7 @@ A command-line chess game where you can play against the powerful Stockfish ches
 
 [![Build Windows](https://github.com/malaykasana/Chessy/actions/workflows/build-windows.yml/badge.svg)](https://github.com/malaykasana/Chessy/actions/workflows/build-windows.yml)
 
-This project includes both a full GUI app (`chess_gui.py`) and a simple command-line game (`main.py`).
+This project includes both a full GUI app (`chessy.py`) and a simple command-line game (`main.py`).
 
 
 ### Command-Line Version (main.py)
@@ -21,7 +21,7 @@ This project includes both a full GUI app (`chess_gui.py`) and a simple command-
 - âœ… Detects checkmate, stalemate, and draw conditions
 - ðŸ“ Move input in standard UCI notation (e.g., e2e4)
 
-### GUI Version (chess_gui.py) âœ¨NEW
+### GUI Version (chessy.py) âœ¨NEW
 - ðŸŽ® **Graphical chess board** with Unicode pieces
 - ðŸ–±ï¸ **Click to move** - Intuitive drag-free interface
 - ðŸ’¡ **Legal move highlights** - See where you can move
@@ -89,7 +89,7 @@ python main.py
 
 **GUI Version (Graphical Interface):**
 ```powershell
-python chess_gui.py
+python chessy.py
 ```
 
 
@@ -149,7 +149,7 @@ Your move (e.g., 'e2e4' or 'quit'): e2e4
 ```
 New folder/
 â”œâ”€â”€ main.py              # Command-line chess game
-â”œâ”€â”€ chess_gui.py         # GUI version with tkinter âœ¨NEW
+â”œâ”€â”€ chessy.py         # GUI version with tkinter âœ¨NEW
 â”œâ”€â”€ requirements.txt     # Python dependencies
 â”œâ”€â”€ README.md           # This file
 â”œâ”€â”€ .gitignore          # Git ignore rules
