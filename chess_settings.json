@@ -2,8 +2,5 @@
   "lichess_username": "malaykasana",
   "chesscom_username": "Gujjar_plays_chess",
   "theme": "Classic",
-  "piece_style": "Classic",
-  "piece_size": 52,
-  "skill_level": 20,
-  "multipv_count": 3
+  "ai_difficulty": 1.0
 }
